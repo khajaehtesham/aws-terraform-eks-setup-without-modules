@@ -1,0 +1,10 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: default # Replace with your namespace
+  name: developer-role
+rules:
+- apiGroups: ["", "apps", "extensions"] # Core API group, apps, extensions
+  resources: ["deployments", "pods", "services"] # Resources this role can access
+  verbs: ["get", "list", "watch", "create", "update", "patch", "delete"] # Actions allowed
+

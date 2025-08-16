@@ -1,0 +1,15 @@
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: developer-binding
+  namespace: default # Must match the Role's namespace
+subjects:
+- kind: Group # Binding to a group (more on this below)
+  name: developer-group # The name of your "group"
+  apiGroup: rbac.authorization.k8s.io # Important for groups
+roleRef:
+  kind: Role # Referencing a Role
+  name: developer-role # Must match the Role's name
+  apiGroup: rbac.authorization.k8s.io
+
